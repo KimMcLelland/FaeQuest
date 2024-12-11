@@ -3,6 +3,7 @@
 [node name="Plains" type="ColorRect"]
 margin_right = 2048.0
 margin_bottom = 1800.0
+color = Color( 0.298039, 0.733333, 0.0901961, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

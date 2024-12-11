@@ -3,6 +3,7 @@
 [node name="Desert" type="ColorRect"]
 margin_right = 2048.0
 margin_bottom = 1800.0
+color = Color( 0.952941, 0.898039, 0.670588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

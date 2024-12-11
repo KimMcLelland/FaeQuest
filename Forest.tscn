@@ -3,6 +3,7 @@
 [node name="Forest" type="ColorRect"]
 margin_right = 2048.0
 margin_bottom = 1800.0
+color = Color( 0, 0.501961, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
