@@ -13,6 +13,11 @@ config_version=4
 config/name="FaeQuest"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://PlayerStats.tscn"
+WorldStats="*res://WorldStats.tscn"
+
 [physics]
 
 common/enable_pause_aware_picking=true
