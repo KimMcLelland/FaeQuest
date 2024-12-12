@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var speed = 300
-var direction = "right"
+var direction = "down"
 
 
 func _ready():
@@ -17,13 +17,12 @@ func _process(delta):
 		direction = "left"
 		velocity.x -= 1
 	if Input.is_action_pressed("ui_down"):
+		direction = "down"
 		velocity.y += 1
 	if Input.is_action_pressed("ui_up"):
+		direction = "up"
 		velocity.y -= 1
-	#if direction == "right":
-		#$AnimatedSprite.animation = "right"
-	#if direction == "left":
-		#$AnimatedSprite.animation = "left"
+	$AnimatedSprite.animation = direction
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 	velocity = move_and_slide(velocity)
