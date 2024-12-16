@@ -18,11 +18,13 @@ func _ready():
 	add_child(head_spawn)
 	head_spawn.position.x = rng.randi_range (256, 1792)
 	head_spawn.position.y = rng.randi_range (256, 1544)	
+	wolf_pack_direction = rng.randi_range (1, 8)
 	head_spawn.head_wolf = 1
 	wolf_spawn(head_spawn.position.x, head_spawn.position.y)
 	wolf_spawn(head_spawn.position.x, head_spawn.position.y)
 	wolf_spawn(head_spawn.position.x, head_spawn.position.y)
 	wolf_spawn(head_spawn.position.x, head_spawn.position.y)
+	
 
 #func _process(delta):
 #	pass
