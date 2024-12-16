@@ -1,9 +1,12 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Hills.gd" type="Script" id=1]
 
 [node name="Hills" type="ColorRect"]
 margin_right = 2048.0
 margin_bottom = 1800.0
 color = Color( 0.788235, 0.8, 0.247059, 1 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
