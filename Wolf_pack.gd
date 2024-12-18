@@ -82,3 +82,12 @@ func _on_Wolf_pack_body_shape_entered(body_id, body, body_shape, local_shape):
 		mode = "chase"
 		speed = 300
 		
+
+
+func _on_Wolf_pack_body_shape_exited(body_id, body, body_shape, local_shape):
+	if body.name != null:
+		if body.name == "Player":
+			mode = "wander"
+			speed = 200
+			direction = rng.randi_range (1, 8)
+			

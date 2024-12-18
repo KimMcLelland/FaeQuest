@@ -18,7 +18,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 33.1315
+radius = 62.1957
 
 [node name="Wolf" type="Area2D"]
 script = ExtResource( 3 )
@@ -32,3 +32,7 @@ animation = "right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_Wolf_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_Wolf_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_Wolf_body_shape_exited"]
