@@ -26,4 +26,7 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 	velocity = move_and_slide(velocity)
+	
+	if position.x > 2048:
+		get_tree().change_scene("res://Hills.tscn")
 
