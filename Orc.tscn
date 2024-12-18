@@ -18,7 +18,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 22.9882
+radius = 102.988
 
 [node name="Orc" type="Area2D"]
 script = ExtResource( 3 )
@@ -32,3 +32,6 @@ animation = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[connection signal="body_shape_entered" from="." to="." method="_on_Orc_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_Orc_body_shape_exited"]

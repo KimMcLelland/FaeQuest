@@ -3,6 +3,7 @@ extends Area2D
 var rng = RandomNumberGenerator.new()
 var direction
 var speed
+var mode
 
 
 
@@ -11,11 +12,33 @@ func _ready():
 	$AnimatedSprite.animation = "down"
 	rng.randomize()
 	direction = rng.randi_range (1, 8)
+	mode = "wander"
 
 
 
 func _process(delta):
 	var velocity = Vector2()
+	if mode == "chase":
+		if $"../Player".position.x > position.x + 32:
+			if $"../Player".position.y > position.y + 32:
+				direction = 2
+			elif $"../Player".position.y < position.y + 32:
+				direction = 8
+			else:
+				direction = 1
+		elif $"../Player".position.x < position.x + 32:
+			if $"../Player".position.y > position.y + 32:
+				direction = 4
+			elif $"../Player".position.y < position.y + 32:
+				direction = 6
+			else:
+				direction = 5
+		elif $"../Player".position.y > position.y + 32:
+			direction = 3
+		elif $"../Player".position.y < position.y + 32:
+			direction = 7
+			
+			
 	if direction == 1:
 		velocity.x += 1
 	if direction == 2:
@@ -61,3 +84,17 @@ func _process(delta):
 	position += velocity * delta
 
 
+
+
+func _on_Orc_body_shape_entered(body_id, body, body_shape, local_shape):
+	if body.name == "Player":
+		speed = 300
+		mode = "chase"
+
+
+func _on_Orc_body_shape_exited(body_id, body, body_shape, local_shape):
+	if body.name != null:
+		if body.name == "Player":
+			mode = "wander"
+			speed = 200
+			direction = rng.randi_range (1, 8)
