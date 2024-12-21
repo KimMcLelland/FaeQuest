@@ -41,6 +41,7 @@ func _process(delta):
 			
 	if direction == 1:
 		velocity.x += 1
+		$AnimatedSprite.animation = "right"
 	if direction == 2:
 		velocity.x += 1
 		velocity.y += 1
@@ -54,17 +55,18 @@ func _process(delta):
 		$AnimatedSprite.animation = "down"
 	if direction == 5:
 		velocity.x -= 1
+		$AnimatedSprite.animation = "left"
 	if direction == 6:
 		velocity.x -= 1
 		velocity.y -= 1
-		$AnimatedSprite.animation = "up"
+		$AnimatedSprite.animation = "left"
 	if direction == 7:
 		velocity.y -= 1
 		$AnimatedSprite.animation = "up"
 	if direction == 8:
 		velocity.x += 1
 		velocity.y -= 1
-		$AnimatedSprite.animation = "up"
+		$AnimatedSprite.animation = "right"
 		
 	if position.x > 2016:
 		direction = rng.randi_range (4, 6)
