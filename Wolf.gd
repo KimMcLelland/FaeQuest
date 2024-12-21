@@ -16,18 +16,14 @@ func _ready():
 func _process(delta):
 	var velocity = Vector2()
 	
-	if $"..".direction == 1:
+	if $"..".orientation == 1:
 		$AnimatedSprite.animation = "right"
-	if $"..".direction == 2:
-		$AnimatedSprite.animation = "right"
-	if $"..".direction == 4:
+	if $"..".orientation == 3:
+		$AnimatedSprite.animation = "down"
+	if $"..".orientation == 5:
 		$AnimatedSprite.animation = "left"
-	if $"..".direction == 5:
-		$AnimatedSprite.animation = "left"
-	if $"..".direction == 6:
-		$AnimatedSprite.animation = "left"
-	if $"..".direction == 8:
-		$AnimatedSprite.animation = "right"
+	if $"..".orientation == 7:
+		$AnimatedSprite.animation = "up"
 		
 	if mode == "attack":
 		if direction == 1:

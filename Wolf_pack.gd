@@ -2,6 +2,7 @@ extends Area2D
 
 var rng = RandomNumberGenerator.new()
 var direction
+var orientation
 var speed
 var mode
 
@@ -19,6 +20,7 @@ func _process(delta):
 	var velocity = Vector2()
 	if mode == "chase":
 		if $"../Player".position.x > position.x + 128:
+			orientation = 1
 			if $"../Player".position.y > position.y + 128:
 				direction = 2
 			elif $"../Player".position.y < position.y + 128:
@@ -26,6 +28,7 @@ func _process(delta):
 			else:
 				direction = 1
 		elif $"../Player".position.x < position.x + 128:
+			orientation = 5
 			if $"../Player".position.y > position.y + 128:
 				direction = 4
 			elif $"../Player".position.y < position.y + 128:
@@ -34,42 +37,52 @@ func _process(delta):
 				direction = 5
 		elif $"../Player".position.y > position.y + 128:
 			direction = 3
+			orientation = 3
 		elif $"../Player".position.y < position.y + 128:
 			direction = 7
+			orientation = 7
 			
 	if direction == 1:
 		velocity.x += 1
+		orientation = 1
 	if direction == 2:
 		velocity.x += 1
 		velocity.y += 1
 	if direction == 3:
 		velocity.y += 1
+		orientation = 3
 	if direction == 4:
 		velocity.x -= 1
 		velocity.y += 1
 	if direction == 5:
 		velocity.x -= 1
+		orientation = 5
 	if direction == 6:
 		velocity.x -= 1
 		velocity.y -= 1
 	if direction == 7:
 		velocity.y -= 1
+		orientation = 7
 	if direction == 8:
 		velocity.x += 1
 		velocity.y -= 1
 		
 	if position.x > 1824:
 		direction = rng.randi_range (4, 6)
+		orientation = 5
 	if position.x < 32:
 		var result = rng.randi_range (1, 3)
+		orientation = 1
 		if result == 1 or result == 2:
 			direction = result
 		else:
 			direction = 8
 	if position.y > 1576:
 		direction = rng.randi_range (6, 8)
+		orientation = 7
 	if position.y < 32:
 		direction = rng.randi_range (2, 4)
+		orientation = 5
 		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
