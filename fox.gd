@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 var rng = RandomNumberGenerator.new()
 var direction
@@ -7,7 +7,7 @@ var speed
 
 func _ready():
 	speed = 200
-
+	
 	rng.randomize()
 	direction = rng.randi_range (1, 8)
 
@@ -58,5 +58,24 @@ func _process(delta):
 		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-	position += velocity * delta
+	velocity = move_and_slide(velocity)
 
+
+func _on_Area2D_body_shape_entered(body_id, body, body_shape, local_shape):
+	if body.name == "oaktree":
+		if direction == 1:
+			direction = 5
+		if direction == 2:
+			direction = 6
+		if direction == 3:
+			direction = 7
+		if direction == 4:
+			direction = 8
+		if direction == 5:
+			direction = 1
+		if direction == 6:
+			direction = 2
+		if direction == 7:
+			direction = 3
+		if direction == 8:
+			direction = 4
