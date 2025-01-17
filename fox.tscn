@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Sprites/fox_right.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/fox_left.png" type="Texture" id=2]
@@ -6,14 +6,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 } ]
 
@@ -21,10 +21,7 @@ animations = [ {
 radius = 40.553
 height = 0.0
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 80.7121
-
-[node name="fox" type="KinematicBody2D"]
+[node name="fox" type="Area2D"]
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -34,9 +31,4 @@ animation = "right"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 3 )
-
-[connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_fox_body_entered"]

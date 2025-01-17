@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 var rng = RandomNumberGenerator.new()
 var direction
@@ -58,24 +58,23 @@ func _process(delta):
 		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-	velocity = move_and_slide(velocity)
+	position += velocity * delta
 
 
-func _on_Area2D_body_shape_entered(body_id, body, body_shape, local_shape):
-	if body.name == "oaktree":
-		if direction == 1:
-			direction = 5
-		if direction == 2:
-			direction = 6
-		if direction == 3:
-			direction = 7
-		if direction == 4:
-			direction = 8
-		if direction == 5:
-			direction = 1
-		if direction == 6:
-			direction = 2
-		if direction == 7:
-			direction = 3
-		if direction == 8:
-			direction = 4
+func _on_squirrel_body_entered(body):
+	if direction == 1:
+		direction = 5
+	if direction == 2:
+		direction = 6
+	if direction == 3:
+		direction = 7
+	if direction == 4:
+		direction = 8
+	if direction == 5:
+		direction = 1
+	if direction == 6:
+		direction = 2
+	if direction == 7:
+		direction = 3
+	if direction == 8:
+		direction = 4
