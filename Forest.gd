@@ -2,7 +2,6 @@ extends ColorRect
 
 var rng = RandomNumberGenerator.new()
 var Carrot = preload("res://carrot.tscn")
-var Apple = preload("res://apple.tscn")
 var Bird = preload("res://blackbird.tscn")
 var Bee = preload("res://Bee.tscn")
 var Fox = preload("res://fox.tscn")
@@ -17,11 +16,6 @@ func _ready():
 	carrot_spawn()
 	carrot_spawn()
 	carrot_spawn()
-	apple_spawn()
-	apple_spawn()
-	apple_spawn()
-	apple_spawn()
-	apple_spawn()
 	bird_spawn()
 	bird_spawn()
 	bird_spawn()
@@ -48,12 +42,6 @@ func _ready():
 
 func carrot_spawn():
 	var spawn = Carrot.instance()
-	add_child(spawn)
-	spawn.position.x = rng.randi_range (32, 2016)
-	spawn.position.y = rng.randi_range (32, 1768)
-
-func apple_spawn():
-	var spawn = Apple.instance()
 	add_child(spawn)
 	spawn.position.x = rng.randi_range (32, 2016)
 	spawn.position.y = rng.randi_range (32, 1768)

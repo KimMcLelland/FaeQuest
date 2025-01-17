@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Sprites/tree1.png" type="Texture" id=1]
+[ext_resource path="res://oaktree.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 68.6997, 130.016 )
+extents = Vector2( 29.7, 130.016 )
 
 [node name="oaktree" type="StaticBody2D"]
 z_index = 1
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
