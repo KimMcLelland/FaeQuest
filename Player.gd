@@ -5,18 +5,19 @@ var direction = "down"
 
 
 func _ready():
-	if PlayerStats.orientation == "North":
-		position.x = 1024
-		position.y = 1704
-	if PlayerStats.orientation == "East":
-		position.x = 96
-		position.y = 900
-	if PlayerStats.orientation == "South":
-		position.x = 1024
-		position.y = 96
-	if PlayerStats.orientation == "West":
-		position.x = 1952
-		position.y = 900
+	pass
+	#if PlayerStats.orientation == "North":
+	#	position.x = 1024
+	#	position.y = 1704
+	#if PlayerStats.orientation == "East":
+	#	position.x = 96
+	#	position.y = 900
+	#if PlayerStats.orientation == "South":
+	#	position.x = 1024
+	#	position.y = 96
+	#if PlayerStats.orientation == "West":
+	#	position.x = 1952
+	#	position.y = 900
 
 func next_screen(NSEW):
 	PlayerStats.orientation = NSEW
@@ -73,20 +74,23 @@ func _process(delta):
 		velocity = velocity.normalized() * speed
 	velocity = move_and_slide(velocity)
 	
-	if position.x > 1984:
-		if PlayerStats.location < 12 and PlayerStats.location != 4 and PlayerStats.location != 8:
-			next_screen("East")
+	position.x = clamp(position.x, 32, 3040)
+	position.y = clamp(position.y, 32, 568)
 	
-	if position.x < 64:
-		if PlayerStats.location < 13 and PlayerStats.location != 1 and PlayerStats.location != 5:
-			next_screen("West")
-			
-	if position.y > 1736:
-		if PlayerStats.location < 9:
-			next_screen("South")
-			
-	if position.y < 64:
-		if PlayerStats.location > 4 and PlayerStats.location < 13:
-			next_screen("North")
+	#if position.x > 1984:
+	#	if PlayerStats.location < 12 and PlayerStats.location != 4 and PlayerStats.location != 8:
+	#		next_screen("East")
+	
+	#if position.x < 64:
+	#	if PlayerStats.location < 13 and PlayerStats.location != 1 and PlayerStats.location != 5:
+	#		next_screen("West")
+	#		
+	#if position.y > 1736:
+	#	if PlayerStats.location < 9:
+	#		next_screen("South")
+	#		
+	#if position.y < 64:
+	#	if PlayerStats.location > 4 and PlayerStats.location < 13:
+	#		next_screen("North")
 		
 

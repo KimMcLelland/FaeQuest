@@ -1,12 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Forest.gd" type="Script" id=2]
-[ext_resource path="res://oaktree.tscn" type="PackedScene" id=3]
 
 [node name="Forest" type="ColorRect"]
-margin_right = 2048.0
-margin_bottom = 1800.0
+margin_right = 3072.0
+margin_bottom = 600.0
 color = Color( 0, 0.501961, 0, 1 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -14,28 +13,4 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1004.09, 989.951 )
-
-[node name="oaktree" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1484.93, 873.985 )
-
-[node name="oaktree2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 995.607, 1295.42 )
-
-[node name="oaktree3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1578.26, 1555.64 )
-
-[node name="oaktree4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 376.181, 1453.81 )
-
-[node name="oaktree5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 339.412, 254.559 )
-
-[node name="oaktree6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1009.75, 517.603 )
-
-[node name="oaktree7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1742.31, 237.588 )
-
-[node name="oaktree8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 644.882, 947.524 )
+position = Vector2( 45.2522, 560.03 )
