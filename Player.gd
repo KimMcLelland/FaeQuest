@@ -1,11 +1,10 @@
 extends KinematicBody2D
 
 var speed = 300
-var direction = "down"
 
 
 func _ready():
-	pass
+	$AnimatedSprite.animation = "still"
 	#if PlayerStats.orientation == "North":
 	#	position.x = 1024
 	#	position.y = 1704
@@ -58,20 +57,20 @@ func next_screen(NSEW):
 func _process(delta):
 	var velocity = Vector2()
 	if Input.is_action_pressed("ui_right"):
-		direction = "right"
+		$AnimatedSprite.animation = "right"
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left"):
-		direction = "left"
+		$AnimatedSprite.animation = "left"
 		velocity.x -= 1
 	if Input.is_action_pressed("ui_down"):
-		direction = "down"
 		velocity.y += 1
 	if Input.is_action_pressed("ui_up"):
-		direction = "up"
 		velocity.y -= 1
-	$AnimatedSprite.animation = direction
+	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+	else:
+		$AnimatedSprite.animation = "still"
 	velocity = move_and_slide(velocity)
 	
 	position.x = clamp(position.x, 32, 3040)
