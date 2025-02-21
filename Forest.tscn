@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Forest.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://signpost.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Cave.tscn" type="PackedScene" id=5]
 [ext_resource path="res://house_entrance.tscn" type="PackedScene" id=6]
+[ext_resource path="res://oaktree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Twisted_tree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Moon_shrine.tscn" type="PackedScene" id=9]
 
 [node name="Forest" type="ColorRect"]
 margin_right = 3072.0
@@ -30,3 +33,36 @@ position = Vector2( 548.716, 528.917 )
 
 [node name="house_entrance" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2327.8, 107.48 )
+
+[node name="Twisted_tree" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2619.13, 178.191 )
+
+[node name="Twisted_tree2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2248.6, 359.211 )
+
+[node name="Twisted_tree3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2545.59, 466.691 )
+
+[node name="oaktree" parent="." instance=ExtResource( 7 )]
+position = Vector2( 808.931, 455.377 )
+
+[node name="oaktree2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1247.34, 316.784 )
+
+[node name="oaktree3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1895.05, 424.265 )
+
+[node name="oaktree4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 415.779, 260.216 )
+
+[node name="oaktree5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1001.26, 172.534 )
+
+[node name="oaktree6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 141.422, 186.676 )
+
+[node name="oaktree7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1779.08, 149.907 )
+
+[node name="Moon_shrine" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1547.15, 483.662 )
