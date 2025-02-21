@@ -6,10 +6,12 @@ var Bird = preload("res://blackbird.tscn")
 var Bee = preload("res://Bee.tscn")
 var Fox = preload("res://fox.tscn")
 var Squirrel = preload("res://squirrel.tscn")
+var awakened
 
 
 
 func _ready():
+	awakened = 0
 	rng.randomize()
 	#carrot_spawn()
 	#carrot_spawn()

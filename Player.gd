@@ -76,6 +76,9 @@ func _process(delta):
 	position.x = clamp(position.x, 32, 3040)
 	position.y = clamp(position.y, 32, 568)
 	
+	if position.x > 2048:
+		$"..".awakened = 1
+	
 	#if position.x > 1984:
 	#	if PlayerStats.location < 12 and PlayerStats.location != 4 and PlayerStats.location != 8:
 	#		next_screen("East")
