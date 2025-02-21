@@ -19,3 +19,4 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [connection signal="body_shape_entered" from="." to="." method="_on_Moon_shrine_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_Moon_shrine_body_shape_exited"]

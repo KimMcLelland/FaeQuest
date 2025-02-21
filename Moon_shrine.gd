@@ -1,24 +1,34 @@
 extends Area2D
 
 var Unicorn = preload("res://Unicorn.tscn")
+var active
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	active = 0
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if active == 1:
+		if Input.is_action_pressed("ui_accept"):
+			Spawn()
 
-
+func Spawn():
+	var spawn = Unicorn.instance()
+	add_child(spawn)
+	spawn.position.x = 100
+	spawn.position.y = -400
+	active = 2
 
 
 
 func _on_Moon_shrine_body_shape_entered(body_id, body, body_shape, local_shape):
-	if body.name == "Player":
-		var spawn = Unicorn.instance()
-		add_child(spawn)
-		spawn.position.x = 100
-		spawn.position.y = -400
+	if body.name == "Player" and active == 0:
+		active = 1
+	
+
+
+func _on_Moon_shrine_body_shape_exited(body_id, body, body_shape, local_shape):
+	if body.name != null and body.name == "Player":
+		if active == 1:
+			active = 0
